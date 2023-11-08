@@ -1,9 +1,10 @@
 (() => {
   // get answers (stored in window.grid)
-	let answers = [];
+  let answers = [];
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[r].length; c++) {
       let e = grid[r][c];
+      if (e == null) continue;
       if (e.across && e.across.is_start_of_word) {
         let word = '';
         for (let i = 0; grid[r][c+i]; i++) {
