@@ -10,14 +10,14 @@
         for (let i = 0; grid[r][c+i]; i++) {
           word += grid[r][c+i];
         }
-        answers.append(word);
+        answers.push(word);
       }
       if (e.down && e.down.is_start_of_word) {
         let word = '';
         for (let i = 0; grid[r+i][c]; i++) {
           word += grid[r+1][c];
         }
-        answers.append(word);
+        answers.push(word);
       }
     }
   }
