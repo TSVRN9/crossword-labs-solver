@@ -1,7 +1,6 @@
 (() => {
-  const d = document;
   // get answers (stored in window.grid)
-	let answers = [];
+  let answers = [];
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[r].length; c++) {
       let e = grid[r][c];
@@ -34,7 +33,6 @@
   </head>
   <body>
     <h1>Answers</h1>
-    <button id="fill">Fill Automatically</button>
     <ol>
       ${answers.map(a => '<li>' + a + '</li>').join('\n')}
     </ol>
@@ -42,17 +40,4 @@
   `;
   popup = window.open('about:blank', '', 'width=600 height=400');
   popup.document.write(popup_html);
-  popup.document.getElementById('fill').addEventListener('click', () => {
-    // fill out answers
-    for (let r = 0; r < grid.length; r++) {
-      for (let c = 0; c < grid[r].length; c++) {
-        let e = grid[r][c];
-        if (e == null) continue;
-
-        const box = d.getElementById(`cx-${r}-${c}`);
-        box.dispatchEvent(new Event('click'));
-        box.dispatchEvent(new KeyboardEvent('keyup', {key: e.char, bubbles: true}));
-      }
-    }
-  });
 })()
